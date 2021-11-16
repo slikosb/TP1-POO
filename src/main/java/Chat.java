@@ -6,6 +6,6 @@ public class Chat extends Animal {
 
 	@Override
 	public String getNomAnimal() {
-		return "Le Chat " + super.getNomAnimal();
+		return "Le Chat c'est : " + super.getNomAnimal();
 	}
 }
