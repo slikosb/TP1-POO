@@ -3,19 +3,20 @@ import java.util.List;
 
 public class Secteur {
 
-	private List<Animal> animauxDansSecteur = new ArrayList<Animal>();
+	private List<Animal> animauxDansSecteur;
 	private TypeAnimal typeAnimauxDansSecteur;
 	
 	public Secteur(TypeAnimal typeAnimauxDansSecteur) {
 		super();
+		animauxDansSecteur = new ArrayList<Animal>();
 		this.typeAnimauxDansSecteur = typeAnimauxDansSecteur;
 	}
 
 	public void ajouterAnimal(Animal animal) throws AnimalDansMauvaisSecteurException{
 		if (animal.getTypeAnimal() != typeAnimauxDansSecteur){
 			throw new AnimalDansMauvaisSecteurException();
-		}
-		animauxDansSecteur.add(animal);
+		}else
+			animauxDansSecteur.add(animal);
 	}
 	
 	public int getNombreAnimaux(){

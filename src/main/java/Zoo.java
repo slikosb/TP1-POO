@@ -27,9 +27,14 @@ public class Zoo {
 		return secteursAnimaux.stream().filter(s -> s.obtenirType() == typeAnimal).findFirst().orElse(null);
 	}
 	
-	public void nouvelAnimal(Secteur secteur, Animal animal){
+	public void nouvelAnimal(Animal animal){
 		try {
-			secteur.ajouterAnimal(animal);
+			for (Secteur s : secteursAnimaux){
+				if (s.obtenirType() == animal.getTypeAnimal()){
+					s.ajouterAnimal(animal);
+					break;
+				}
+			}
 		} catch (AnimalDansMauvaisSecteurException e) {
 			e.printStackTrace();
 		}
@@ -38,8 +43,20 @@ public class Zoo {
 	public int nombreAnimaux(){
 		int nombreAnimaux = 0;
 		for (Secteur secteur : secteursAnimaux){
-			nombreAnimaux = secteur.getNombreAnimaux();
+			nombreAnimaux += secteur.getNombreAnimaux();
 		}
 		return nombreAnimaux;
+	}
+
+	public int getVisiteurs() {
+		return visiteurs;
+	}
+
+	public List<Secteur> getSecteursAnimaux() {
+		return secteursAnimaux;
+	}
+
+	public int getLIMITE_VISITEUR_PAR_SECTEUR() {
+		return LIMITE_VISITEUR_PAR_SECTEUR;
 	}
 }
