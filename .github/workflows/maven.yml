@@ -26,3 +26,5 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - uses: codecov/codecov-action@v2
+      with:
+        token: 267fcddc-0dba-4d5d-9997-c515148be1da 
